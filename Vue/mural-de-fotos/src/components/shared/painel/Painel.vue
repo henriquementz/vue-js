@@ -2,9 +2,11 @@
 
     <div class="painel">
 
-      <h2 class="painel-titulo">{{titulo}}</h2>
-      <slot class="painel-conteudo">
+      <h2 class="painel-titulo" @dblclick="visivel = !visivel">{{titulo}}</h2>
+      <div class="painel-conteudo" v-show="visivel">
+      <slot  >
       </slot>
+      </div>
 
       </div>
     </div>
@@ -15,7 +17,13 @@
 
 export default {
     props: ['titulo'
-    ]
+    ],
+
+    data(){
+      return {
+        visivel: true
+      }
+    }
 }
 </script>
 <style scoped>
