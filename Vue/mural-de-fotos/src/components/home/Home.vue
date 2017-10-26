@@ -9,6 +9,8 @@
       <li class="lista-fotos-item" v-for="foto of fotosComFiltro">
         <meu-painel :titulo="foto.titulo">
           <imagem-responsiva :url="foto.url" :titulo="foto.titulo" />
+          <meu-botao tipo="button" rotulo="REMOVER" @botaoAtivado="remove($event, foto)" /> 
+          
         </meu-painel>
       </li>
     </ul>
@@ -19,14 +21,17 @@
 <script>
 //@ - view para fonte de dados.
 //: fonte de dados para a view.
+// sem ':' : não tem associação com dado do componente
 import Painel from '../shared/painel/Painel.vue'
 import ImagemResponsiva from '../shared/imagem-responsiva/ImagemResponsiva.vue'
+import Botao from '../shared/botao/Botao.vue'
 
 export default {
 
   components: {
     'meu-painel': Painel, 
-    'imagem-responsiva': ImagemResponsiva
+    'imagem-responsiva': ImagemResponsiva,
+    'meu-botao': Botao
   },
 
   data () {
@@ -59,7 +64,13 @@ export default {
       .get('http://localhost:3000/v1/fotos')
       .then(res => res.json())
       .then(fotos => this.fotos = fotos, err => console.log(err));
-  }
+  }, 
+
+   methods:{
+      remove($event, foto){
+        alert('Excluido com sucesso ' + foto.titulo + $event)
+      }
+    }
 }
 </script>
 <style>

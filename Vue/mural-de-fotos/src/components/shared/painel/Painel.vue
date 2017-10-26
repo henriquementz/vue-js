@@ -23,7 +23,9 @@ export default {
       return {
         visivel: true
       }
-    }
+    },
+
+   
 }
 </script>
 <style scoped>
