@@ -54,4 +54,8 @@ export default {
     box-shadow: 5px 5px 5px;
   }
 
+  .painel-conteudo{
+    overflow: hidden;
+  }
+
 </style>

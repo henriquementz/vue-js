@@ -6,6 +6,8 @@ import VueRouter from 'vue-router';
 
 import { routes } from './routes';
 
+import './directives/Transform';
+
 const router = new VueRouter({ routes, mode: 'history' });
 
 //Es6 - Parâmetro e valor com menos nome. 
